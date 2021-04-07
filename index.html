@@ -1,0 +1,46 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/pure-min.css" crossorigin="anonymous">
+	<title>QRCode Reader</title>
+	<style>
+		#video-container {
+			margin: 0 auto;
+			position: relative;
+			width: 100%;
+			height: 480px;
+		}
+		canvas, video {
+			width: 640px;
+			height: 480px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		#canvas {
+			z-index: 10;
+		}
+		.container {
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id='video-container'>
+		<video id='video' src='resources/nasa.mp4' playsinline controls autoplay muted></video>
+		<canvas id='canvas' width='1280px' height='960px'></canvas>
+	</div>
+	<button class="pure-button" onclick="onstart()">Start</button>
+	<button class="pure-button" onclick="onstop()">Stop</button>
+	<button class="pure-button" onclick="onclear()">Clear</button>
+	<form class='pure-form'>
+		<label for='video-current-time'>動画時刻</label>
+		<input id='video-current-time'/>
+		<label for='mouse-trace'>マウス軌跡</label>
+		<textarea id='mouse-trace'></textarea>
+	</form>
+	<script src='./js/canvas.js'></script>
+	<script src='./js/main.js'></script>
+</body>
+</html>
